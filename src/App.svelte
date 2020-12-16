@@ -17,4 +17,4 @@
 	}
 </style>
 
-<main>Contain the thing placeholder</main>
+<main>Contain the Thing</main>
