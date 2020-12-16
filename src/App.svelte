@@ -17,4 +17,4 @@
 	}
 </style>
 
-<main>Contain the Thing</main>
+<main>Contain the Thing game</main>
