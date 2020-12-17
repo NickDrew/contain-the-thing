@@ -1,3 +1,19 @@
+<script>
+    import { createEventDispatcher } from "svelte";
+    const dispatch = createEventDispatcher();
+
+    export let guard;
+
+    function update(updatedGuard) {
+        guard = { ...guard, ...updatedGuard };
+        dispatch("update", guard);
+    }
+
+    function patrolToggle() {
+        update({ onPatrol: !guard.onPatrol });
+    }
+</script>
+
 <style>
     @keyframes flicker {
         0% {
@@ -190,10 +206,6 @@
         animation: textShadow 1.6s infinite;
     }
 
-    .site-title {
-        font-size: 2rem;
-    }
-
     .outer {
         margin: 15px 0;
         padding: 5px;
@@ -203,10 +215,10 @@
         height: 150px;
         border-radius: 5px;
         border: 3px solid;
-        border-color:black;
-        position:relative;
+        border-color: black;
+        position: relative;
         background-color: #00f;
-        color: #fff;
+        color: #39ff14;
         font: 600 1rem/1.3 Consolas, Andale Mono, monospace;
     }
 
@@ -231,13 +243,43 @@
         border: 0;
         outline: none;
         cursor: default;
+        width: 95px;
+
+        color: #39ff14 !important;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: #00f;
+        border: 4px solid #39ff14 !important;
+        display: inline-block;
+        transition: all 0.4s ease 0s;
+    }
+    .at-rest {
+        padding-top: 40px;
+    }
+    .patrol {
+       color: red;
     }
 </style>
 
 <div class="outer">
     <div class="crt" />
     <img class="profile-image" src="./images/testImage.jpg" alt="person" />
-    Pvt. Loberman
-    <img class="heartbeat-image" src="./images/heartbeat.gif" alt="heartbeat" />
-    <div class="button-outer"><button class="kia-button">Status?</button></div>
+    {guard.name}
+    {#if guard.onPatrol}
+    <div class="patrol">
+        <img
+            class="heartbeat-image"
+            src="./images/heartbeat.gif"
+            alt="heartbeat" />
+            ACTIVE
+        </div>
+    {:else}
+        <div class="at-rest">RESTING</div>
+    {/if}
+    <div class="button-outer">
+        <button class="kia-button">Purge</button>
+        <button class="kia-button" on:click={patrolToggle}>
+            {#if guard.onPatrol}Patrol{:else}Basecamp{/if}
+        </button>
+    </div>
 </div>

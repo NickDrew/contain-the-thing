@@ -1,12 +1,17 @@
 <script>
-	import Guards from "./components/Guards.svelte"
+	import AdminCommands from "./components/AdminCommands.svelte";
+	import BarrierStatus from "./components/BarrierStatus.svelte";
+	import Guards from "./components/Guards.svelte";
+	import Header from "./components/Header.svelte";
+	import MainBody from "./components/MainBody.svelte";
+	import PatrolCount from "./components/PatrolCount.svelte";
+
+	import { guards, barrierChecks } from "./stores";
 </script>
 
 <style>
 	main {
 		text-align: center;
-		padding: 1em;
-		max-width: 240px;
 		margin: 0 auto;
 	}
 
@@ -17,4 +22,11 @@
 	}
 </style>
 
-<main><Guards/></main>
+<main>
+	<Header />
+	<Guards bind:guards={$guards} />
+	<BarrierStatus bind:barrierChecks={$barrierChecks} />
+	<PatrolCount bind:guards={$guards} />
+	<MainBody />
+	<AdminCommands bind:guards={$guards} bind:barrierChecks={$barrierChecks} />
+</main>
