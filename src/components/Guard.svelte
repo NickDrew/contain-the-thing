@@ -3,6 +3,11 @@
     const dispatch = createEventDispatcher();
 
     export let guard;
+    $: imageSrc = guard.alive
+        ? `./images/${guard.image}`
+        : `./images/${guard.thingImage}`;
+
+    $: deathSound = `./sounds/${guard.sound}`;
 
     function update(updatedGuard) {
         guard = { ...guard, ...updatedGuard };
@@ -11,6 +16,10 @@
 
     function patrolToggle() {
         update({ onPatrol: !guard.onPatrol });
+    }
+
+    function purgeToggle() {
+        update({ alive: !guard.alive });
     }
 </script>
 
@@ -257,27 +266,39 @@
         padding-top: 40px;
     }
     .patrol {
-       color: red;
+        color: red;
+    }
+
+    .dead {
+        padding-top: 40px;
+        color: red;
     }
 </style>
 
 <div class="outer">
     <div class="crt" />
-    <img class="profile-image" src="./images/testImage.jpg" alt="person" />
+    <img class="profile-image" src={imageSrc} alt="person" />
     {guard.name}
     {#if guard.onPatrol}
-    <div class="patrol">
-        <img
-            class="heartbeat-image"
-            src="./images/heartbeat.gif"
-            alt="heartbeat" />
+        <div class="patrol">
+            <img
+                class="heartbeat-image"
+                src="./images/heartbeat.gif"
+                alt="heartbeat" />
             ACTIVE
         </div>
-    {:else}
+    {:else if guard.alive}
         <div class="at-rest">RESTING</div>
+    {:else}
+        <div class="dead">K.I.A</div>
     {/if}
     <div class="button-outer">
-        <button class="kia-button">Purge</button>
+        <button class="kia-button" on:click={purgeToggle}>
+            {#if guard.alive}
+                Human
+                <!-- svelte-ignore a11y-media-has-caption -->
+            {:else}Thing <audio src={deathSound} autoPlay />{/if}
+        </button>
         <button class="kia-button" on:click={patrolToggle}>
             {#if guard.onPatrol}Patrol{:else}Basecamp{/if}
         </button>

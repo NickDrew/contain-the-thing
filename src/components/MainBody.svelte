@@ -1,10 +1,9 @@
 <style>
-
-    .main-outer{
+    .main-outer {
         margin-top: 10px;
-        height:500px;
-        background-color: white;
+        height: 500px;
+        /* background-color: white; */
     }
 </style>
 
-<div class="main-outer"></div>
+<div class="main-outer" />
