@@ -1,5 +1,5 @@
 <script>
-	//Todo: Add shit here
+	import Guards from "./components/Guards.svelte"
 </script>
 
 <style>
@@ -17,4 +17,4 @@
 	}
 </style>
 
-<main>Contain the Thing game</main>
+<main><Guards/></main>
