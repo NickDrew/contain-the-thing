@@ -12,9 +12,10 @@ const initialGuards = [
     { id: 8, name: "Todd", onPatrol: false, alive: true, image: "todd.png", thingImage:"thing3.jpg", sound: "monsterDeath1.mp3", inGame:true },
     { id: 9, name: "Jonny", onPatrol: false, alive: true, image: "jonny.jpeg", thingImage:"thing2.jpg", sound: "monsterDeath5.mp3", inGame:true },
     { id: 10, name: "Michael", onPatrol: false, alive: true, image: "michael.jpeg", thingImage:"thing1.png", sound: "monsterDeath4.mp3", inGame:true },
-    { id: 11, name: "Guest1", onPatrol: false, alive: true, image: "testImage.jpg", thingImage:"thing1.png", sound: "monsterDeath4.mp3", inGame:true },
-    { id: 12, name: "Guest2", onPatrol: false, alive: true, image: "testImage.jpg", thingImage:"thing1.png", sound: "monsterDeath4.mp3", inGame:true },
-    { id: 13, name: "Guest3", onPatrol: false, alive: true, image: "testImage.jpg", thingImage:"thing1.png", sound: "monsterDeath4.mp3", inGame:true },
+    { id: 11, name: "Sergio", onPatrol: false, alive: true, image: "sergio.jpeg", thingImage:"thing4.jpg", sound: "monsterDeath5.mp3", inGame:true },
+    { id: 12, name: "Guest1", onPatrol: false, alive: true, image: "testImage.jpg", thingImage:"thing1.png", sound: "monsterDeath4.mp3", inGame:true },
+    { id: 13, name: "Guest2", onPatrol: false, alive: true, image: "testImage.jpg", thingImage:"thing1.png", sound: "monsterDeath4.mp3", inGame:true },
+    { id: 14, name: "Guest3", onPatrol: false, alive: true, image: "testImage.jpg", thingImage:"thing1.png", sound: "monsterDeath4.mp3", inGame:true },
 ]
 
 const initialBarrierChecks = [
