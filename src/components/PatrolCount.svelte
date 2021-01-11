@@ -8,7 +8,7 @@
 
     function generatePatrolSize() {
         patrolCount = Math.floor(Math.random() * maxPatrolCount) + 1;
-        patrolCount = patrolCount < 2 ? 2 : patrolCount;
+        patrolCount = patrolCount < 3 ? 3 : patrolCount;
         console.log(maxPatrolCount);
     }
 </script>
