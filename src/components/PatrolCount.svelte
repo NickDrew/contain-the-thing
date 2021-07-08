@@ -4,7 +4,7 @@
     $: livingGuards = guards.filter((guard) => {
         return guard.alive;
     }).length;
-    $: maxPatrolCount = livingGuards > 5 ? 5 : livingGuards;
+    $: maxPatrolCount = livingGuards > 5 ? 7 : livingGuards;
 
     function generatePatrolSize() {
         patrolCount = Math.floor(Math.random() * maxPatrolCount) + 1;
