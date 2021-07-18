@@ -296,8 +296,7 @@
         <button class="kia-button" on:click={purgeToggle}>
             {#if guard.alive}
                 Human
-                <!-- svelte-ignore a11y-media-has-caption -->
-            {:else}Thing <audio src={deathSound} autoPlay />{/if}
+            {:else}Thing <audio src={deathSound} autoPlay><track kind="captions"/> Monster death sound</audio>{/if}
         </button>
         <button class="kia-button" on:click={patrolToggle}>
             {#if guard.onPatrol}Patrol{:else}Basecamp{/if}
