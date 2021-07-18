@@ -1,4 +1,5 @@
 <script>
+    import{push} from 'svelte-spa-router'
     export let guards = [];
     export let barrierChecks = [];
 
@@ -62,4 +63,7 @@
             bind:value={barrierStrength}
             on:blur={() => setBarrierStrength(barrierStrength)} />
     </div>
+    <button on:click={() => push('/guardmanagement')}>
+        Add/remove players
+    </button>
 </div>
