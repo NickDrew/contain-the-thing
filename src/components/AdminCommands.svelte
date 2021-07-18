@@ -63,7 +63,8 @@
             bind:value={barrierStrength}
             on:blur={() => setBarrierStrength(barrierStrength)} />
     </div>
-    <button on:click={() => push('/guardmanagement')}>
+    <!-- re-add this once guard admin is setup -->
+    <!-- <button on:click={() => push('/guardmanagement')}>
         Add/remove players
-    </button>
+    </button> -->
 </div>
